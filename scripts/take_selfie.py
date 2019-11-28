@@ -20,7 +20,9 @@ for i in range(count):
     time.sleep(1)
 
 milli = int(round(time.time() * 1000))
-image = '{0}/image_{1}.jpg'.format(directory, milli)
+#image = '{0}/image_{1}.jpg'.format(directory, milli)
+
+image = 'testalex.jpg'
 camera.capture(image)
 print('Your image was saved to %s' % image)
 

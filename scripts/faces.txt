@@ -1,0 +1,12 @@
+Date | Label | Collection | FaceId | ImageId
+2019-11-28 21:22:08 | Alex | pisecproject | df741cc1-1850-4e90-b5f3-1f436a5ba11b | 771ccc7b-22b3-351f-b063-60f019db7285
+2019-11-28 21:23:58 | Alex | pisecproject | 91082281-326d-4125-8473-d468aaf4d251 | eac59d69-4cef-3d1c-aee4-498fbfaf3578
+2019-11-28 21:25:32 | Alex | pisecproject | ab03c163-2069-48e8-a94d-e4b834ddc3b8 | cf4df699-47a5-382f-a696-63db76bcab73
+2019-11-28 21:26:15 | Alex | pisecproject | 3239eb23-b020-4ef9-a8ce-3dfe3958e44a | 28b687ca-36f3-3300-8b07-6c91c7b3c41c
+2019-11-28 21:26:46 | Alex | pisecproject | 3c2c436b-5c4b-4867-97bc-9d99c6b56506 | 0e4f1014-32dd-32a5-808d-322503eb7530
+2019-11-28 21:27:21 | Alex | pisecproject | cf32c67a-e49f-4fab-9399-16e3dc88a35d | 2b75bf5e-9209-3bdb-87f6-3144e975908d
+2019-11-28 21:31:34 | Alex | pisecproject | e424f684-cb4d-479c-999b-ed5dbc5cf13b | 43903133-fb7e-3a62-a78b-5df3e4f7a55b
+2019-11-28 21:34:09 | Alex | pisecproject | cdc85b30-1272-4bd7-ace9-0fd3a79397a9 | 657bdc06-91a0-3c9c-97c9-8f50aab7cdf0
+2019-11-28 21:37:49 | Alex | pisecproject | dc9f8be6-f122-47be-9ad2-85d00e0c1737 | 64438079-a1f5-3083-a7a2-f22cefc65ece
+2019-11-28 21:38:19 | Alex | pisecproject | b116e4c8-25bf-484a-82d7-a1c3b4bab69f | ef45ecd5-0853-31a0-b87a-2f7addc8a127
+2019-11-28 21:38:51 | Alex | pisecproject | 5affb9ac-697c-49e8-9177-dcff4fca8763 | de539d11-2960-351c-b384-0fe5f3f45f94
