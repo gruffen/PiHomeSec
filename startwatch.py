@@ -16,16 +16,24 @@ def main():
     directory= '/home/pi/PiHomeSec/testfaces'
     aws_collection = 'pihomesec'
 
+    # Camera inits
     camera = PiCamera()
-    aws_client = facematch.get_client()
-    GPIO.setmode(GPIO.BCM)
+    camera.vflip = True
+    camera.hflip = True
 
+    # AWS API init
+    aws_client = facematch.get_client()
+
+    # GPIO inits
+    GPIO.setmode(GPIO.BCM)
     GPIO.setwarning(False)
     GPIO.setup(PIR_PIN, GPIO.IN)
 
+    # Wait for init to get to steady state
     while GPIO.input(PIR_PIN) == 1:
         currentstate = 0
-    
+   
+    # Begin main loop
     try:
         while True:
             currentstate = GPIO.read(PIR_PIN)
