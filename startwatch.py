@@ -9,9 +9,15 @@ import os
 import requests
 
 def main():
+
     PIR_PIN = 17 # TODO: Change this
+    PT_PIN1 = 1  # TODO: Change this
+    PT_PIN2 = 2  # TODO: Change this
+    directory= '/home/pi/PiHomeSec/testfaces'
+    aws_collection = 'pihomesec'
 
     camera = PiCamera()
+    aws_client = facematch.get_client()
     GPIO.setmode(GPIO.BCM)
 
     GPIO.setwarning(False)
@@ -21,19 +27,42 @@ def main():
         currentstate = 0
     
     try:
-       while True:
-           
-         # Read from pins
-         # Do additional processing
-            # If something was detected
-                # If light outside
-                    # Take normal picture
-                # Else if dark outside
-                    # Take flash/longer exposure picture
-                # Run facial recognition
-                    # If no faces detected, take another picture just to be sure
-                # Post a request to IFTTT with name of person (or unknown)
-                # Post a request to webserver with name of person (or unknown), and image
+        while True:
+            currentstate = GPIO.read(PIR_PIN)
+            if (currentstate == 1 and previousstate == 0):
+                print("Motion detected!")
+                if (GPIO.read(PT_PIN1) == 0)
+                    camera.exposure_mode = 'night'
+                elif
+                    camera.exposure_mode = 'auto'
+                
+                image_name = '{0}/image_{1}.jpg'.format(directory, milli)
+                camera.capture(image_name)
+                
+                print("Capture saved to %s" % image)
+                
+                face_detect_result, response = facematch.check_face(client, image_name)
+
+                if (face_detect_result):
+                    print("Faces detected with %r confidence" % (round(response['FaceDetails'][0]
+                        ['Confidence'],2))
+
+                    print("Checking for a face match...")
+                    face_recog_result, res = facematch.check_matches(client, image_name, aws_collection)
+                    
+                    if (face_recog_result):
+                        match = res['FaceMatches'][0]['Face']['ExternalImageId']
+                        similarity = round(res['FaceMatches'][0]['Similarity'], 1)
+                        conf = round(res['FaceMatches'][0]['Face']['Confidence'], 2))
+
+                    else:
+                        match = 'Unknown'
+                        similarity = 0
+                        conf = 0
+                    
+                        # requests.post('https://maker.ifttt.com/trigger/YOUR_EVENT_NAME/with/key/YOUR_KE
+                        #Y_HERE', params={"value1":"none","value2":"none","value3":"none"})                    
+        time.sleep(0.01)
         
     except KeyboardInterrupt:
         print("Quitting...")
