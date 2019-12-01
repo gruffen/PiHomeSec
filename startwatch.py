@@ -69,7 +69,20 @@ def main():
                         conf = 0
                     
                         # requests.post('https://maker.ifttt.com/trigger/YOUR_EVENT_NAME/with/key/YOUR_KE
-                        #Y_HERE', params={"value1":"none","value2":"none","value3":"none"})                    
+                        #Y_HERE', params={"value1":"none","value2":"none","value3":"none"})             
+
+                else:
+                    print("No faces detected, notifying anyways...")
+                    # requests.post('https://maker.ifttt.com/trigger/YOUR_EVENT_NAME/with/key/YOUR_KE
+                     #Y_HERE', params={"value1":"none","value2":"none","value3":"none"})             
+
+                previousstate = 1
+                print("Waiting 120 seconds...")
+                time.sleep(120)
+
+            elif currentstate == 0 and previousstate == 1:
+                previousstate = 0
+
         time.sleep(0.01)
         
     except KeyboardInterrupt:
