@@ -1,0 +1,22 @@
+{
+  "name": "final-sensor-project",
+  "version": "1.0.0",
+  "description": "Final project for ...",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx nodemon app.js",
+    "dev": "nodemon app.js"
+  },
+  "author": "Samantha Badeau, Alex Lin, Jeremiah Townley, Fletcher Hall",
+  "license": "ISC",
+  "dependencies": {
+    "canvas": "^2.6.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.1",
+    "volleyball": "^1.5.1"
+  }
+}
