@@ -7,13 +7,15 @@ import boto3 as b3
 import time
 import os
 import requests
+import Adafruit_ADS1x15
 
 def main():
 
+    # Constants
     PIR_PIN = 7 
-    PT_PIN1 = 1  # TODO: Change this
-    PT_PIN2 = 2  # TODO: Change this
-
+    GAIN = 1
+    LDR_DAYTIME_THRESHOLD = 6000 #TODO: Change this
+    
     IFTTT_KEY = 'dTXcvAJ80UkK5S9OVHdAfr'
     directory= '/home/pi/PiHomeSec/testfaces'
     aws_collection = 'pisecproject'
@@ -30,11 +32,16 @@ def main():
     GPIO.setmode(GPIO.BOARD)
     GPIO.setup(PIR_PIN, GPIO.IN)
 
+    # ADC init
+    adc = Adafruit_ADS1x15.ADS1115()
+
     previousstate = 0
 
     # Wait for init to get to steady state
     while GPIO.input(PIR_PIN) == 1:
         currentstate = 0
+
+    print("Starting watch...")
    
     # Begin main loop
     try:
@@ -42,11 +49,21 @@ def main():
             match = 'Unknown'
             currentstate = GPIO.input(PIR_PIN)
             if (currentstate == 1 and previousstate == 0):
-                print("Motion detected!")
+                print("[+] Motion detected!")
 
                 milli = int(round(time.time() * 1000))
                 
                 image_name = '{0}/image_{1}.jpg'.format(directory, milli)
+                
+                ldr_reading = adc.read_adc_difference(0, gain=GAIN)
+
+                if ldr_reading < LDR_DAYTIME_THRESHOLD:
+                    print("[+] Light levels low")
+                    camera.exposure_mode = 'night'
+                else:
+                    print("[+] Light levels nominal")
+                    camera.exposure_mode = 'auto'
+
                 camera.capture(image_name)
                 
                 print("Capture saved to %s" % image_name)
@@ -77,7 +94,7 @@ def main():
 
                 previousstate = 1
                 #print("Waiting 120 seconds...")
-                time.sleep(8)
+                time.sleep(30)
 
             elif currentstate == 0 and previousstate == 1:
                 previousstate = 0
