@@ -1,0 +1,18 @@
+Press Ctrl-C to quit...
+Channel 0 minus 1: 8089
+Channel 0 minus 1: 8089
+Channel 0 minus 1: 8094
+Channel 0 minus 1: 8095
+Channel 0 minus 1: 8096
+Channel 0 minus 1: 8087
+Channel 0 minus 1: 8086
+Channel 0 minus 1: 7313
+Channel 0 minus 1: 1252
+Channel 0 minus 1: 1353
+Channel 0 minus 1: 1473
+Channel 0 minus 1: 1761
+Channel 0 minus 1: 1809
+Channel 0 minus 1: 1853
+Channel 0 minus 1: 8224
+Channel 0 minus 1: 8315
+Channel 0 minus 1: 8333
