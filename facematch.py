@@ -12,7 +12,7 @@ def check_face(client, file):
         response = client.detect_faces(Image={'Bytes': image.read()})
         if (not response['FaceDetails']):
             face_detected = False
-        else
+        else:
             face_detected = True
 
     return face_detected, response
