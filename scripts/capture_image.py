@@ -4,7 +4,7 @@ from picamera import PiCamera
 import time
 import os
 
-count = 10
+count =2 
 camera = PiCamera()
 camera.vflip = True
 camera.hflip = True
@@ -20,9 +20,9 @@ for i in range(count):
     time.sleep(1)
 
 milli = int(round(time.time() * 1000))
-#image = '{0}/image_{1}.jpg'.format(directory, milli)
+image = '{0}/image_{1}.jpg'.format(directory, milli)
 
-image = 'testalex.jpg'
+#image = 'testalex.jpg'
 camera.capture(image)
 print('Your image was saved to %s' % image)
 

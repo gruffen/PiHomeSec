@@ -64,6 +64,7 @@ def main():
                     print("[+] Light levels nominal")
                     camera.exposure_mode = 'auto'
 
+                time.sleep(1)
                 camera.capture(image_name)
                 
                 print("Capture saved to %s" % image_name)
@@ -81,15 +82,16 @@ def main():
                         similarity = round(res['FaceMatches'][0]['Similarity'], 1)
                         conf = round(res['FaceMatches'][0]['Face']['Confidence'], 2)
 
+                        print("Person: ")
                         print(match)
 
                     else:
                         similarity = 0
                         conf = 0
-
+                        print("Person: ")
                         print(match)
                 else:
-                    print("No faces detected, notifying anyways...")
+                    #print("No faces detected, notifying anyways...")
                 requests.post('https://maker.ifttt.com/trigger/person_detected/with/key/dTXcvAJ80UkK5S9OVHdAfr', params={"value1":match,"value2":"none","value3":"none"})             
 
                 previousstate = 1

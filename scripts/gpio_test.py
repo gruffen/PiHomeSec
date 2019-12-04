@@ -28,12 +28,12 @@ while True:
 
         image_name = '{0}/image_{1}.jpg'.format(directory, milli)
 
-        camera.capture(image_name)
+       # camera.capture(image_name)
 
-        print("Capture saved to %s" % image_name)
+       # print("Capture saved to %s" % image_name)
 
         previousstate = 1
-        time.sleep(1)
+        time.sleep(10)
 
     elif currentstate == 0 and previousstate == 1:
         previousstate = 0
