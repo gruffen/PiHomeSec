@@ -85,18 +85,22 @@ def main():
                         print("Person: ")
                         print(match)
 
+                        
+                        requests.post('https://maker.ifttt.com/trigger/person_detected/with/key/dTXcvAJ80UkK5S9OVHdAfr', params={"value1":match,"value2":"none","value3":"none"})             
+
                     else:
                         similarity = 0
                         conf = 0
                         print("Person: ")
                         print(match)
-                else:
-                    #print("No faces detected, notifying anyways...")
-                requests.post('https://maker.ifttt.com/trigger/person_detected/with/key/dTXcvAJ80UkK5S9OVHdAfr', params={"value1":match,"value2":"none","value3":"none"})             
 
+                        requests.post('https://maker.ifttt.com/trigger/person_detected/with/key/dTXcvAJ80UkK5S9OVHdAfr', params={"value1":match,"value2":"none","value3":"none"})             
+
+                else:
+                    print("no face detected!")
                 previousstate = 1
                 #print("Waiting 120 seconds...")
-                time.sleep(30)
+                time.sleep(10)
 
             elif currentstate == 0 and previousstate == 1:
                 previousstate = 0
